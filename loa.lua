@@ -19,7 +19,7 @@ function OnEvent(event, arg)
 --    mail(8)
 --    hazardous()
 --    hazardous_repeat(1)
-
+      OutputLogMessage("DONE: %s\n", GetDate())
   end
 end
 
@@ -72,7 +72,6 @@ end
 function wait_second(s)
     Sleep(s * 1000 + math.random(10, 30))
 end
-
 
 
 -- check mouse coordinate(x,y) and print them out
@@ -201,14 +200,12 @@ end
 -- weekly guild quest hazardous
 function hazardous()
   
-  -- hazardous world map grid coordinate
-  map_x, map_y = 27000, 30000
   -- quest points coordinates
   points = {
-    {41835, 23625},
-    {31245, 16215},
-    {20600, 23400},
-    {20500, 31600}
+    {27650, 28500},
+    {25400, 26900},
+    {23100, 28500},
+    {23000, 30300}
   }
   
   wait_second(1)
@@ -216,8 +213,7 @@ function hazardous()
   -- open world map "m" and left click on the grid
   key("m")
   wait_second(1)
-  left_click(map_x, map_y)
-  
+
   -- auto route paths
   PressKey(LEFT_ALT)
   for i=1, #points, 1
@@ -298,20 +294,21 @@ function hazardous_repeat(a)
     {20600, 23400}
   }
   
-  wait_second(1)
+  wait_second(5)
   
   repeat_amount = a
   route_time = 100
   OutputLogMessage("START: %s\n", GetDate())
   for r=0, repeat_amount-1, 1
   do
-    if (r % 2 == 0) then
-      repair_ship()
-    end
-
+  
     if (IsModifierPressed(LEFT_ALT))
     then
       break
+    end
+  
+    if (r % 2 == 0) then
+      repair_ship()
     end
 
     -- REPEAT TAKE: R-> L
@@ -334,6 +331,11 @@ function hazardous_repeat(a)
       wait_second(route_time)
     end
     complete_quest()
+    
+    if (IsModifierPressed(LEFT_ALT))
+    then
+      break
+    end
     
     -- REPEAT TAKE: L-> R
     accept_guild()
