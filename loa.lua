@@ -202,8 +202,8 @@ function hazardous()
   
   -- quest points coordinates
   points = {
-    {27650, 28500},
-    {25400, 26900},
+    {27600, 28550},
+    {25400, 26950},
     {23100, 28500},
     {23000, 30300}
   }
@@ -287,8 +287,8 @@ function hazardous_repeat(a)
 
   -- quest points coordinates
   points = {
-    {27650, 28500},
-    {25400, 26900},
+    {27600, 28550},
+    {25400, 26950},
     {23100, 28500}
   }
   
