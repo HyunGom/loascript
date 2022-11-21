@@ -285,13 +285,11 @@ end
 -- weekly guild quest hazardous REPEAT VER
 function hazardous_repeat(a)
 
-  -- hazardous world map grid coordinate
-  map_x, map_y = 27000, 30000
   -- quest points coordinates
   points = {
-    {41835, 23625},
-    {31245, 16215},
-    {20600, 23400}
+    {27650, 28500},
+    {25400, 26900},
+    {23100, 28500}
   }
   
   wait_second(5)
@@ -307,17 +305,11 @@ function hazardous_repeat(a)
       break
     end
   
-    if (r % 2 == 0) then
-      repair_ship()
-    end
-
     -- REPEAT TAKE: R-> L
     accept_guild()
     -- open world map "m" and left click on the grid
     key("m")
     wait_second(1)
-    left_click(map_x, map_y)
-    -- auto route paths :: R->L
     PressKey(LEFT_ALT)
     for i=1, #points, 1
     do
@@ -330,6 +322,7 @@ function hazardous_repeat(a)
     else
       wait_second(route_time)
     end
+    
     complete_quest()
     
     if (IsModifierPressed(LEFT_ALT))
@@ -342,8 +335,6 @@ function hazardous_repeat(a)
     -- open world map "m" and left click on the grid
     key("m")
     wait_second(1)
-    left_click(map_x, map_y)
-    -- auto route paths :: R->L
     PressKey(LEFT_ALT)
     for j=#points, 1, -1
     do
@@ -352,9 +343,15 @@ function hazardous_repeat(a)
     ReleaseKey(LEFT_ALT)
     key(ESC) 
     wait_second(route_time)
+    
     complete_quest()
+    
+    -- repair ship every 2 round trips to not blow up
+    if (r % 2 == 0) then
+      repair_ship()
+    end
+    
   end
-  repair_ship()
   OutputLogMessage("FINISHED: %s\n", GetDate())
 
 end
