@@ -6,7 +6,7 @@ ESC = "escape"
 ENTER = "enter"
 INVENTORY = "i"
 PET = "semicolon"
-
+MARKET_DELAY = 0.55
 
 
 -- MAIN FUNCTION
@@ -111,7 +111,7 @@ function auction_gem(n)
       break
     end
     left_click(search[x], search[y])
-    wait_second(0.45)
+    wait_second(MARKET_DELAY)
     left_click(item[x], item[y])
     left_click(bidbuy[x], bidbuy[y])
     left_click(buynow[x], buynow[y])
