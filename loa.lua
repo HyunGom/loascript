@@ -147,6 +147,10 @@ function mail(m)
 
   for i=m, 1, -1
   do
+    if(IsModifierPressed(LEFT_ALT))
+    then
+      break
+    end
     left_click(select_x, select_y)
     left_click(take_x, take_y)
     wait_second(0.5)
