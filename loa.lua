@@ -6,17 +6,15 @@ ESC = "escape"
 ENTER = "enter"
 INVENTORY = "i"
 PET = "semicolon"
-MARKET_DELAY = 0.55
+MARKET_DELAY = 0.95  -- CHANGE THIS TO SERVER RESPONSE TIME
 
 
 -- MAIN FUNCTION
 function OnEvent(event, arg)
-    -- arg 9 -> middle square button
     -- arg # -> mouse "G" button
 	if (event == "MOUSE_BUTTON_RELEASED" and arg == 8) then
-    -------------------------------------------
     --- uncomment to select a script to run ---
-    -------------------------------------------
+
 --    check_coordinate()
 
 --    market(20, 6)
@@ -24,7 +22,7 @@ function OnEvent(event, arg)
 
 
 --    auction_gem(81 * 5)
---    gem_macro(3)
+--    gem_macro(1)
 
 
 --    hazardous()
