@@ -111,7 +111,7 @@ function auction_gem(n)
     left_click(bidbuy[x], bidbuy[y])
     left_click(buynow[x], buynow[y])
     key(ENTER)
-    wait_second(10)
+    wait_second(10-MARKET_DELAY)
   end
   
   OutputLogMessage("FINISHED: %s\n", GetDate())
@@ -307,18 +307,18 @@ end
 -- Move to (X,Y) and Left Click
 function left_click(x, y)
     MoveMouseTo(x + math.random(10, 30), y + math.random(10, 30))
-    Sleep(100 + math.random(10,30))
+    Sleep(70 + math.random(10,30))
     MLC()
-    Sleep(250 + math.random(10,30))
+    Sleep(100 + math.random(10,30))
 end
 
 
 -- Move to (X,Y) and Right Click
 function right_click(x, y)
     MoveMouseTo(x + math.random(10, 30), y + math.random(10, 30))
-    Sleep(100 + math.random(10,30))
+    Sleep(70 + math.random(10,30))
     MRC()
-    Sleep(250 + math.random(10,30))
+    Sleep(100 + math.random(10,30))
 end
 
 
@@ -327,7 +327,7 @@ function key(k)
     PressKey(k)
     Sleep(math.random(10,30))
     ReleaseKey(k)
-    Sleep(200 + math.random(10,30))
+    Sleep(130 + math.random(10,30))
 end
 
 
