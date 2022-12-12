@@ -1,12 +1,9 @@
 -- global variable for ease of use
--- ARRAY 1-BASED INDEX ... for coordinate
 x,y = 1, 2
-LEFT_ALT = "lalt"
-ESC = "escape"
-ENTER = "enter"
-INVENTORY = "i"
-PET = "semicolon"
-MARKET_DELAY = 0.95  -- CHANGE THIS TO SERVER RESPONSE TIME
+LEFT_ALT, ESC, ENTER = "lalt", "escape", "enter"
+INVENTORY, PET = "i", "semicolon"
+GEM_ROW = 3
+MARKET_DELAY = 1.25  -- CHANGE THIS TO SERVER RESPONSE TIME
 
 
 -- MAIN FUNCTION
@@ -89,7 +86,7 @@ function auction_gem(n)
 
   -- CHECK COORDINATE with check_coordinate()
   -- ROW Y-COORDINATE: {1: 20100, 2: 23600, 3: 27100,} or xY = 3500
-  item = {52250, 23600}
+  item = {52250, (16600+(3500*GEM_ROW))}
   
   -- bid/buy button
   bidbuy = {53500, 56000}  
@@ -278,6 +275,10 @@ function gem_macro(n)
   for i=n, 1, -1
   do
     mail(8)
+    if(IsModifierPressed(LEFT_ALT))
+    then
+      break
+    end
     wait_second(1)
     fuse_gem()
   end
