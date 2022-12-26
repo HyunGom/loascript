@@ -110,6 +110,7 @@ function auction_gem(n)
     left_click(item[x], item[y])
     left_click(bidbuy[x], bidbuy[y])
     left_click(buynow[x], buynow[y])
+    wait_second(0.2)
     key(ENTER)
     wait_second(10-MARKET_DELAY)
   end
@@ -365,15 +366,11 @@ end
 
 
 function repair_ship()
-  map = {27000, 30000}
-  harbor = {46800, 33400}
+  harbor = {28720, 30500}
   repair_button = {38000, 61800}
   
   key("m")
   wait_second(1)
-  
-  left_click(map[x], map[y])
-  wait_second(0.5)
   
   PressKey(LEFT_ALT)
   left_click(harbor[x], harbor[y])
