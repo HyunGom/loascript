@@ -7,8 +7,8 @@
 
 ## How To Use
 ![image](https://user-images.githubusercontent.com/11356984/198976250-a01dbc4e-18b9-4362-8620-bea182399db5.png)
-- Right Click on Default
-- Check and Uncheck when you are using and not using the script
+- Right Click on Default (or any profile you would like to put a script)
+- Check "Set As Persistence" (if using with Lost Ark profile then no need for this)
 - Click Scripting and paste the loa.lua in
 
 (may look differernt if you use a different version of software)
