@@ -4,7 +4,7 @@ LEFT_ALT, ESC, ENTER = "lalt", "escape", "enter"
 INVENTORY, PET = "i", "semicolon"
 GEM_ROW = 3
 MARKET_DELAY = 1.25  -- CHANGE THIS TO SERVER RESPONSE TIME
-
+CENTER = {32450, 30250}
 
 -- MAIN FUNCTION
 function OnEvent(event, arg)
@@ -182,6 +182,8 @@ function hazardous()
   key("m")
   wait_second(1)
 
+  right_click(CENTER[x], CENTER[y])
+  
   -- auto route paths
   PressKey(LEFT_ALT)
   for i=1, #points, 1
